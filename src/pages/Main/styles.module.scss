@@ -4,5 +4,9 @@
   height: 100vh;
   height: 100svh;
   position: relative;
-  padding: $page-header-height $page-layout-side-padding 0px;
+  padding-top: $page-header-height;
+}
+
+.page_content {
+  padding: 20px $page-layout-side-padding;
 }

@@ -6,7 +6,7 @@ const Main: FC = () => {
   return (
     <div className={styles.page}>
       <Header />
-      <div className={styles.page_content}>444</div>
+      <div className={styles.page_content}></div>
     </div>
   );
 };
