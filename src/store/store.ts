@@ -2,16 +2,19 @@ import { configureStore, ThunkMiddleware } from "@reduxjs/toolkit";
 import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
 import { AnyAction } from "redux";
 import soundReducer, { ISoundState } from "./slices/soundSlice";
+import categoryReducer, { ICategoryState } from "./slices/categorySlice";
 
 export const store: ToolkitStore<
   {
     sound: ISoundState;
+    category: ICategoryState;
   },
   AnyAction,
   [
     ThunkMiddleware<
       {
         sound: ISoundState;
+        category: ICategoryState;
       },
       AnyAction
     >
@@ -19,6 +22,7 @@ export const store: ToolkitStore<
 > = configureStore({
   reducer: {
     sound: soundReducer,
+    category: categoryReducer,
   },
 });
 

@@ -1,0 +1,12 @@
+@import "../../styles/index.scss";
+
+.page {
+  height: 100vh;
+  height: 100svh;
+  position: relative;
+  padding-top: $page-header-height;
+}
+
+.page_content {
+  padding: 24px $page-layout-side-padding;
+}

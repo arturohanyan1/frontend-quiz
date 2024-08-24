@@ -4,4 +4,5 @@
 export enum EnumRoutes {
   // Root page
   MAIN = "/",
+  CATEGORY = "/category",
 }
