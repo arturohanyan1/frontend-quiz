@@ -1,0 +1,155 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/colors.scss";
+
+.svgIcon {
+  > div {
+    @include center;
+  }
+
+  &_size {
+    &_xs {
+      @include svg-size(10px);
+    }
+
+    &_sm {
+      @include svg-size(12px);
+    }
+
+    &_msm {
+      @include svg-size(14px);
+    }
+
+    &_xmd {
+      @include svg-size(16px);
+    }
+
+    &_md {
+      @include svg-size(18px);
+    }
+
+    &_mdm {
+      @include svg-size(20px);
+    }
+
+    &_lg {
+      @include svg-size(22px);
+    }
+
+    &_xl {
+      @include svg-size(24px);
+    }
+
+    &_xxl {
+      @include svg-size(30px);
+    }
+
+    &_xxxl {
+      @include svg-size(36px);
+    }
+
+    &_full {
+      height: 100%;
+      width: 100%;
+      @include svg-size(100%);
+    }
+
+    &_default {
+      @include svg-size(auto);
+    }
+  }
+
+  &_rotate {
+    &_90 {
+      transform: rotate(90deg);
+    }
+
+    &_180 {
+      transform: rotate(180deg);
+    }
+
+    &_270 {
+      transform: rotate(270deg);
+    }
+
+    &_360 {
+      transform: rotate(360deg);
+    }
+  }
+
+  &_top {
+    &_1 {
+      margin-top: 1px;
+    }
+
+    &_2 {
+      margin-top: 2px;
+    }
+
+    &_3 {
+      margin-top: 3px;
+    }
+
+    &_4 {
+      margin-top: 4px;
+    }
+  }
+
+  &_pointer {
+    cursor: pointer;
+  }
+
+  &_display_inline-block {
+    display: inline-block;
+  }
+
+  &_color {
+    &_primary {
+      @include svg-color($text-primary-color);
+    }
+    &_secondary {
+      @include svg-color($text-secondary-color);
+    }
+    &_brand {
+      @include svg-color($text-brand-color);
+    }
+    &_info {
+      @include svg-color($text-info-color);
+    }
+    &_success {
+      @include svg-color($text-success-color);
+    }
+    &_warning {
+      @include svg-color($text-warning-color);
+    }
+    &_danger {
+      @include svg-color($text-danger-color);
+    }
+    &_error {
+      @include svg-color($text-error-color);
+    }
+    &_positive {
+      @include svg-color($text-positive-color);
+    }
+    &_negative {
+      @include svg-color($text-negative-color);
+    }
+    &_navigation {
+      @include svg-color($text-navigation-color);
+    }
+    &_muted {
+      @include svg-color($text-muted-color);
+    }
+    &_dark {
+      @include svg-color($text-dark-color);
+    }
+    &_light {
+      @include svg-color($text-light-color);
+    }
+    &_highlighted {
+      @include svg-color($text-highlighted-color);
+    }
+    &_topicButton {
+      @include svg-color($topic_button_text_color);
+    }
+  }
+}
