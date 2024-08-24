@@ -1,8 +1,8 @@
 import { FC } from "react";
 import styles from "./styles.module.scss";
-import Header from "../../components/Header";
 import { useAppSelector } from "src/hooks/reduxAppHooks";
-import TopicButton from "src/components/TopicButton";
+import TopicButton from "src/components/base-components/TopicButton";
+import Header from "src/components/base-components/Header";
 
 const Category: FC = () => {
   // Selectors

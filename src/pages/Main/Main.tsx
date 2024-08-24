@@ -1,9 +1,9 @@
 import { FC } from "react";
 import styles from "./styles.module.scss";
-import Header from "../../components/Header";
-import CategoryButton from "../../components/CategoryButton";
-import { CATEGORIES } from "../../utils/constants";
-import { ICategoryType } from "../../types/common";
+import Header from "src/components/base-components/Header";
+import { CATEGORIES } from "src/utils/constants";
+import { ICategoryType } from "src/types/common";
+import CategoryButton from "src/components/base-components/CategoryButton";
 
 const Main: FC = () => {
   return (

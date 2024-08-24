@@ -1,12 +1,12 @@
 import cn from "classnames";
 import { FC, useCallback } from "react";
 import styles from "./styles.module.scss";
-import { ICategoryType } from "../../types/common";
 import { setCategory } from "src/store/slices/categorySlice";
 import { useAppDispatch } from "src/hooks/reduxAppHooks";
 import { useNavigate } from "react-router-dom";
 import { EnumRoutes } from "src/configs/routes";
 import { useTranslation } from "react-i18next";
+import { ICategoryType } from "src/types/common";
 
 type IProps = {
   classname?: string;
