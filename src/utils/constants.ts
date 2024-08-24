@@ -1,7 +1,7 @@
 import { ICategoryType } from "../types/common";
 
 const CATEGORIES: ICategoryType[] = [
-  { name: "300Questions", id: "300Questions" },
+  { name: "javascript300", id: "javascript300" },
   { name: "fullStack", id: "fullStack" },
 ];
 
