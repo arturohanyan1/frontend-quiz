@@ -1,7 +1,7 @@
 // Text Colors
 $text_primary_color: #f4f4f4;
 $text_secondary_color: #8c8d8e;
-$text_active_color: #7685f7;
+$text_brand_color: #7685f7;
 $text_info_color: #329cff;
 $text_success_color: #329622;
 $text_warning_color: #f2b863;
@@ -16,27 +16,23 @@ $text_light_color: #d7d7d7;
 $text_highlighted_color: #f87d37;
 
 // Background Colors
-$bg_main_color: #171922;
-$bg_primary_color: #7685f7;
-$bg_secondary_color: #161616;
-$bg_third_color: #262626;
-$bg_info_color: #7685f7;
+$bg_main_color: #000;
+$bg_primary_color: #161616;
+$bg_secondary_color: #262626;
+$bg_brand_color: #7685f7;
+$bg_info_color: #329cff;
 $bg_success_color: #329622;
 $bg_danger_color: #ff4d4f;
 $bg_selected_color: #329cff;
 $bg_negative_color: #d63030;
 $bg_positive_color: #87df00;
 $bg_notification_color: #d63030;
-$bg_color_1: #151515; // dark
-$bg_color_2: #141414; // muted
-$bg_color_3: #ffffff; // light
-$bg_color_4: #f4f4f4; // silver
 
 // Border Colors
 $border_main_color: #1b1b1b;
-$border_primary_color: #7685f7;
-$border_secondary_color: #242424;
-$border_third_color: #313341;
+$border_primary_color: #242424;
+$border_secondary_color: #313341;
+$border_brand_color: #7685f7;
 $border_info_color: #329cff;
 $border_success_color: #6cb200;
 $border_error_color: #f7706d;
@@ -61,3 +57,8 @@ $alert_error_border_color: #d63030;
 $alert_info_bg_color: #0d0d0d;
 $alert_info_text_color: #fff;
 $alert_info_border_color: #7685f7;
+
+// BUTTONS
+$category_button_gradient_1: #0e1fd4;
+$category_button_gradient_2: #2575fc;
+$category_button_shadow: #3c4fe0;

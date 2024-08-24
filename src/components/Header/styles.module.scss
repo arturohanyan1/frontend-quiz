@@ -9,10 +9,12 @@
   align-items: center;
   gap: 8px;
   padding: 0px $page-layout-side-padding;
-  background-color: $bg_secondary_color;
+  background-color: $bg_primary_color;
   position: fixed;
   left: 0px;
   top: 0px;
+  border-bottom: 1px solid $border_primary_color;
+  z-index: $header_z_index;
 }
 
 .left_row {
