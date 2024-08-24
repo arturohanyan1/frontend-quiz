@@ -2,6 +2,7 @@ import { FC } from "react";
 import styles from "./styles.module.scss";
 import Header from "../../components/Header";
 import { useAppSelector } from "src/hooks/reduxAppHooks";
+import Language from "src/components/Language";
 
 const Category: FC = () => {
   // Selectors
@@ -10,7 +11,10 @@ const Category: FC = () => {
   return (
     <div className={styles.page}>
       <Header />
-      <div className={styles.page_content}>Category {category}</div>
+      <div className={styles.page_content}>
+        Category {category}
+        <Language />
+      </div>
     </div>
   );
 };
