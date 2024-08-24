@@ -2,6 +2,8 @@ import { FC } from "react";
 import styles from "./styles.module.scss";
 import Header from "../../components/Header";
 import CategoryButton from "../../components/CategoryButton";
+import { CATEGORIES } from "../../utils/constants";
+import { ICategoryType } from "../../types/common";
 
 const Main: FC = () => {
   return (
@@ -9,9 +11,9 @@ const Main: FC = () => {
       <Header />
       <div className={styles.page_content}>
         <div className={styles.categories_wrapper}>
-          <CategoryButton />
-          <CategoryButton />
-          <CategoryButton />
+          {CATEGORIES.map((ctg: ICategoryType) => (
+            <CategoryButton key={ctg.id} data={ctg} />
+          ))}
         </div>
       </div>
     </div>
