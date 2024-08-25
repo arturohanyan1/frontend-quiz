@@ -6,4 +6,5 @@ export enum EnumRoutes {
   MAIN = "/",
   CATEGORY = "/category",
   TOPIC = "/topic",
+  QUESTION = "/question",
 }

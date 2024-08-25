@@ -23,7 +23,8 @@
 .questions_wrapper {
   display: grid;
   gap: 24px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  grid-auto-rows: auto;
   width: 100%;
+  place-items: center;
 }

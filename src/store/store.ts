@@ -4,12 +4,14 @@ import { AnyAction } from "redux";
 import soundReducer, { ISoundState } from "./slices/soundSlice";
 import categoryReducer, { ICategoryState } from "./slices/categorySlice";
 import topicReducer, { ITopicState } from "./slices/topicSlice";
+import questionReducer, { IQuestionState } from "./slices/questionSlice";
 
 export const store: ToolkitStore<
   {
     sound: ISoundState;
     category: ICategoryState;
     topic: ITopicState;
+    question: IQuestionState;
   },
   AnyAction,
   [
@@ -18,6 +20,7 @@ export const store: ToolkitStore<
         sound: ISoundState;
         category: ICategoryState;
         topic: ITopicState;
+        question: IQuestionState;
       },
       AnyAction
     >
@@ -27,6 +30,7 @@ export const store: ToolkitStore<
     sound: soundReducer,
     category: categoryReducer,
     topic: topicReducer,
+    question: questionReducer,
   },
 });
 

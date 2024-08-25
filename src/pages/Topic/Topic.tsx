@@ -13,6 +13,7 @@ import { setCategory } from "src/store/slices/categorySlice";
 import { resetTopic, setTopic } from "src/store/slices/topicSlice";
 import { EnumRoutes } from "src/configs/routes";
 import { makeQuestionButtonData } from "src/utils/transformers";
+import QuestionButton from "src/components/base-components/QuestionButton";
 
 const Topic: FC = () => {
   const { t } = useTranslation();
@@ -80,7 +81,7 @@ const Topic: FC = () => {
         ) : (
           <div className={styles.questions_wrapper}>
             {data.map((el: IQuestionButtonType) => (
-              <span>{el.index}</span>
+              <QuestionButton key={el.index} data={el} />
             ))}
           </div>
         )}
