@@ -7,15 +7,17 @@ import { ITopicButtonType } from "src/types/common";
 import { makeTopicButtonData } from "src/utils/transformers";
 import useErrorHandler from "src/hooks/useErrorHandler";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { makeQueryObj } from "src/utils/helpers";
 import Loader from "src/components/common/Loader";
 import { useAppDispatch } from "src/hooks/reduxAppHooks";
-import { setCategory } from "src/store/slices/categorySlice";
+import { resetCategory, setCategory } from "src/store/slices/categorySlice";
+import { EnumRoutes } from "src/configs/routes";
 
 const Category: FC = () => {
   const { t } = useTranslation();
   const { search } = useLocation();
+  const navigate = useNavigate();
 
   // Redux Actions
   const dispatch = useAppDispatch();
@@ -43,6 +45,12 @@ const Category: FC = () => {
     }
   };
 
+  // Actions
+  const onBackClick = (): void => {
+    dispatch(resetCategory());
+    navigate(EnumRoutes.MAIN);
+  };
+
   // Effects
   useEffect(() => {
     if (search.includes("category")) {
@@ -54,7 +62,7 @@ const Category: FC = () => {
 
   return (
     <div className={styles.page}>
-      <Header />
+      <Header showBackButton onBack={onBackClick} />
       <div className={styles.page_content}>
         {loading ? (
           <Loader />
