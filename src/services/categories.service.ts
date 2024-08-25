@@ -14,4 +14,18 @@ const getTopic = async (category: string, topic: string): Promise<any> => {
   return topicData;
 };
 
-export { getCategory, getTopic };
+const getQuestion = async (
+  category: string,
+  topic: string,
+  index: number
+): Promise<any> => {
+  const data = await http.get(`/mock/${category}.json`, false);
+  const topicData = data.find(
+    (item: ICategoryDataType) => item.topic === topic
+  );
+  if (topicData && topicData?.questions) {
+    return topicData.questions[index - 1];
+  }
+};
+
+export { getCategory, getTopic, getQuestion };
