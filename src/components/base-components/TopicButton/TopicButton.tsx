@@ -11,17 +11,16 @@ type IProps = {
 };
 
 const TopicButton: FC<IProps> = ({ classname, data }) => {
-  console.log(data);
   return (
     <button className={cn(styles.button, classname)} role="button">
       <div className={styles.first_row}>
-        <span className={styles.topic_order}>1</span>
+        <span className={styles.topic_order}>{`${data.questionsCount}`}</span>
         <div className={styles.topic_icon_wrapper}>
           <SvgIcon src={icons.coding} size="sm" color="topicButton" />
         </div>
       </div>
       <div className={styles.second_row}>
-        <span className={styles.button_text}>name</span>
+        <span className={styles.button_text}>{data.name}</span>
       </div>
     </button>
   );

@@ -11,6 +11,15 @@
   padding: 24px $page-layout-side-padding;
 }
 
+.empty_data {
+  @include center;
+  width: 100%;
+  padding-top: 100px;
+  font-size: 18px;
+  color: $text_primary_color;
+  text-transform: capitalize;
+}
+
 .topics_wrapper {
   display: grid;
   gap: 24px;

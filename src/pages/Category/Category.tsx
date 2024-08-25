@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
-import { useAppSelector } from "src/hooks/reduxAppHooks";
 import TopicButton from "src/components/base-components/TopicButton";
 import Header from "src/components/base-components/Header";
 import { getCategory } from "src/services/categories.service";
@@ -8,12 +7,13 @@ import { ITopicButtonType } from "src/types/common";
 import { makeTopicButtonData } from "src/utils/transformers";
 import useErrorHandler from "src/hooks/useErrorHandler";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
+import { makeQueryObj } from "src/utils/helpers";
+import Loader from "src/components/common/Loader";
 
 const Category: FC = () => {
   const { t } = useTranslation();
-
-  // Selectors
-  const { category } = useAppSelector((state) => state.category);
+  const { search } = useLocation();
 
   // States
   const [data, setData] = useState<ITopicButtonType[] | null>(null);
@@ -23,11 +23,10 @@ const Category: FC = () => {
   const handleError = useErrorHandler();
 
   // API Calls
-  const getCategoryReq = async (category: string) => {
+  const getCategoryReq = async (id: string) => {
     try {
       setLoading(true);
-      const res = await getCategory(category);
-      handleError(`${t("somethingWentWrong")} - getCategoryReq`);
+      const res = await getCategory(id);
       if (res) {
         const newTopicsData = makeTopicButtonData(res);
         setData(newTopicsData);
@@ -41,20 +40,29 @@ const Category: FC = () => {
 
   // Effects
   useEffect(() => {
-    if (category) {
-      getCategoryReq(category);
+    if (search.includes("id")) {
+      const obj = makeQueryObj(search);
+      getCategoryReq(obj.id);
     }
-  }, [category]);
-
-  console.log(loading, data, category);
+  }, [search]);
 
   return (
     <div className={styles.page}>
       <Header />
       <div className={styles.page_content}>
-        <div className={styles.topics_wrapper}>
-          <TopicButton data={{ name: "name", questionsCount: 3, index: 1 }} />
-        </div>
+        {loading ? (
+          <Loader />
+        ) : !data ? (
+          <div className={styles.empty_data}>
+            <span>{t("noData")}</span>
+          </div>
+        ) : (
+          <div className={styles.topics_wrapper}>
+            {data.map((el: ITopicButtonType) => (
+              <TopicButton key={el.name} data={el} />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -39,11 +39,9 @@
   font-size: 16px;
   font-weight: 700;
   color: $topic_button_text_color;
-  line-height: 1;
-  list-style: none;
-  white-space: nowrap;
   text-decoration: none;
   text-transform: uppercase;
+  text-align: left;
 }
 
 .first_row {
@@ -70,4 +68,12 @@
     color: azure;
     background: $topic_button_icon_wrapper_color;
   }
+}
+
+.second_row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
 }

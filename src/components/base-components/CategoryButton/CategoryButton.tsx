@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { EnumRoutes } from "src/configs/routes";
 import { useTranslation } from "react-i18next";
 import { ICategoryButtonType } from "src/types/common";
+import { makeQueryString } from "src/utils/helpers";
 
 type IProps = {
   classname?: string;
@@ -23,7 +24,7 @@ const CategoryButton: FC<IProps> = ({ classname, data }) => {
   // Actions
   const onClickHandler = useCallback(() => {
     dispatch(setCategory(data.id));
-    navigate(EnumRoutes.CATEGORY);
+    navigate(`${EnumRoutes.CATEGORY}?${makeQueryString({ id: data.id })}`);
   }, [data]);
 
   return (
