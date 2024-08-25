@@ -24,7 +24,9 @@ const CategoryButton: FC<IProps> = ({ classname, data }) => {
   // Actions
   const onClickHandler = useCallback(() => {
     dispatch(setCategory(data.id));
-    navigate(`${EnumRoutes.CATEGORY}?${makeQueryString({ id: data.id })}`);
+    navigate(
+      `${EnumRoutes.CATEGORY}?${makeQueryString({ category: data.id })}`
+    );
   }, [data]);
 
   return (

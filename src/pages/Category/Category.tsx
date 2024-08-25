@@ -23,10 +23,10 @@ const Category: FC = () => {
   const handleError = useErrorHandler();
 
   // API Calls
-  const getCategoryReq = async (id: string) => {
+  const getCategoryReq = async (category: string) => {
     try {
       setLoading(true);
-      const res = await getCategory(id);
+      const res = await getCategory(category);
       if (res) {
         const newTopicsData = makeTopicButtonData(res);
         setData(newTopicsData);
@@ -40,9 +40,9 @@ const Category: FC = () => {
 
   // Effects
   useEffect(() => {
-    if (search.includes("id")) {
+    if (search.includes("category")) {
       const obj = makeQueryObj(search);
-      getCategoryReq(obj.id);
+      getCategoryReq(obj.category);
     }
   }, [search]);
 
