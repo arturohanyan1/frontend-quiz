@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import Header from "src/components/base-components/Header";
-import { getCategory } from "src/services/categories.service";
+import { getTopic } from "src/services/categories.service";
 import { IQuestionButtonType } from "src/types/common";
 import useErrorHandler from "src/hooks/useErrorHandler";
 import { useTranslation } from "react-i18next";
@@ -12,6 +12,7 @@ import { useAppDispatch, useAppSelector } from "src/hooks/reduxAppHooks";
 import { setCategory } from "src/store/slices/categorySlice";
 import { resetTopic, setTopic } from "src/store/slices/topicSlice";
 import { EnumRoutes } from "src/configs/routes";
+import { makeQuestionButtonData } from "src/utils/transformers";
 
 const Topic: FC = () => {
   const { t } = useTranslation();
@@ -32,16 +33,16 @@ const Topic: FC = () => {
   const handleError = useErrorHandler();
 
   // API Calls
-  const getCategoryReq = async (category: string) => {
+  const getTopicReq = async (category: string, topic: string) => {
     try {
       setLoading(true);
-      const res = await getCategory(category);
+      const res = await getTopic(category, topic);
       if (res) {
-        // const newTopicsData = makeTopicButtonData(res);
-        setData(res);
+        const newQuestionsData = makeQuestionButtonData(res, category, topic);
+        setData(newQuestionsData);
       }
     } catch (error) {
-      handleError(`${t("somethingWentWrong")} - getCategoryReq`);
+      handleError(`${t("somethingWentWrong")} - getTopicReq`);
     } finally {
       setLoading(false);
     }
@@ -60,9 +61,11 @@ const Topic: FC = () => {
       const obj = makeQueryObj(search);
       dispatch(setCategory(obj.category));
       dispatch(setTopic(obj.topic));
-      getCategoryReq(obj.category);
+      getTopicReq(obj.category, obj.topic);
     }
   }, [search]);
+
+  console.log(data);
 
   return (
     <div className={styles.page}>
@@ -76,10 +79,9 @@ const Topic: FC = () => {
           </div>
         ) : (
           <div className={styles.questions_wrapper}>
-            {/* {data.map((el: ITopicButtonType) => (
-              <TopicButton key={el.name} data={el} />
-            ))} */}
-            <div>question</div>
+            {data.map((el: IQuestionButtonType) => (
+              <span>{el.index}</span>
+            ))}
           </div>
         )}
       </div>

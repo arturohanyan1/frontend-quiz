@@ -23,7 +23,7 @@
 .questions_wrapper {
   display: grid;
   gap: 24px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
   width: 100%;
 }

@@ -23,8 +23,16 @@ export interface ITopicButtonType {
   category: string;
 }
 
+export interface ITopicDataType {
+  position?: string;
+  topic: string;
+  questions: IQuestionDataType[];
+}
+
 export interface IQuestionButtonType {
   index: number;
   question: string;
   answer: string;
+  category: string;
+  topic: string;
 }
