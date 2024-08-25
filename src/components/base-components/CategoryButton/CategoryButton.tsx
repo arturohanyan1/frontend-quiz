@@ -6,11 +6,11 @@ import { useAppDispatch } from "src/hooks/reduxAppHooks";
 import { useNavigate } from "react-router-dom";
 import { EnumRoutes } from "src/configs/routes";
 import { useTranslation } from "react-i18next";
-import { ICategoryType } from "src/types/common";
+import { ICategoryButtonType } from "src/types/common";
 
 type IProps = {
   classname?: string;
-  data: ICategoryType;
+  data: ICategoryButtonType;
 };
 
 const CategoryButton: FC<IProps> = ({ classname, data }) => {

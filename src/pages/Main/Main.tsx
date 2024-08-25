@@ -2,7 +2,7 @@ import { FC } from "react";
 import styles from "./styles.module.scss";
 import Header from "src/components/base-components/Header";
 import { CATEGORIES } from "src/utils/constants";
-import { ICategoryType } from "src/types/common";
+import { ICategoryButtonType } from "src/types/common";
 import CategoryButton from "src/components/base-components/CategoryButton";
 
 const Main: FC = () => {
@@ -11,7 +11,7 @@ const Main: FC = () => {
       <Header />
       <div className={styles.page_content}>
         <div className={styles.categories_wrapper}>
-          {CATEGORIES.map((ctg: ICategoryType) => (
+          {CATEGORIES.map((ctg: ICategoryButtonType) => (
             <CategoryButton key={ctg.id} data={ctg} />
           ))}
         </div>

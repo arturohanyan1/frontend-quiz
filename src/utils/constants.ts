@@ -1,6 +1,6 @@
-import { ICategoryType } from "../types/common";
+import { ICategoryButtonType } from "../types/common";
 
-const CATEGORIES: ICategoryType[] = [
+const CATEGORIES: ICategoryButtonType[] = [
   { name: "javascript300", id: "javascript300" },
   { name: "fullStack", id: "fullStack" },
 ];
