@@ -20,4 +20,11 @@ export interface ITopicButtonType {
   position?: string;
   name: string;
   questionsCount: Number;
+  category: string;
+}
+
+export interface IQuestionButtonType {
+  index: number;
+  question: string;
+  answer: string;
 }

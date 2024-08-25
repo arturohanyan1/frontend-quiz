@@ -1,10 +1,8 @@
 import { FC, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
-import TopicButton from "src/components/base-components/TopicButton";
 import Header from "src/components/base-components/Header";
 import { getCategory } from "src/services/categories.service";
-import { ITopicButtonType } from "src/types/common";
-import { makeTopicButtonData } from "src/utils/transformers";
+import { IQuestionButtonType } from "src/types/common";
 import useErrorHandler from "src/hooks/useErrorHandler";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
@@ -12,8 +10,9 @@ import { makeQueryObj } from "src/utils/helpers";
 import Loader from "src/components/common/Loader";
 import { useAppDispatch } from "src/hooks/reduxAppHooks";
 import { setCategory } from "src/store/slices/categorySlice";
+import { setTopic } from "src/store/slices/topicSlice";
 
-const Category: FC = () => {
+const Topic: FC = () => {
   const { t } = useTranslation();
   const { search } = useLocation();
 
@@ -21,7 +20,7 @@ const Category: FC = () => {
   const dispatch = useAppDispatch();
 
   // States
-  const [data, setData] = useState<ITopicButtonType[] | null>(null);
+  const [data, setData] = useState<IQuestionButtonType[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   // Hooks
@@ -33,8 +32,8 @@ const Category: FC = () => {
       setLoading(true);
       const res = await getCategory(category);
       if (res) {
-        const newTopicsData = makeTopicButtonData(res, category);
-        setData(newTopicsData);
+        // const newTopicsData = makeTopicButtonData(res);
+        setData(res);
       }
     } catch (error) {
       handleError(`${t("somethingWentWrong")} - getCategoryReq`);
@@ -48,6 +47,7 @@ const Category: FC = () => {
     if (search.includes("category")) {
       const obj = makeQueryObj(search);
       dispatch(setCategory(obj.category));
+      dispatch(setTopic(obj.topic));
       getCategoryReq(obj.category);
     }
   }, [search]);
@@ -63,10 +63,11 @@ const Category: FC = () => {
             <span>{t("noData")}</span>
           </div>
         ) : (
-          <div className={styles.topics_wrapper}>
-            {data.map((el: ITopicButtonType) => (
+          <div className={styles.questions_wrapper}>
+            {/* {data.map((el: ITopicButtonType) => (
               <TopicButton key={el.name} data={el} />
-            ))}
+            ))} */}
+            <div>question</div>
           </div>
         )}
       </div>
@@ -74,4 +75,4 @@ const Category: FC = () => {
   );
 };
 
-export default Category;
+export default Topic;

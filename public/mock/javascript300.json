@@ -71,7 +71,7 @@
   },
   {
     "position": "junior",
-    "topic": "асинхронность",
+    "topic": "asynchrony",
     "questions": [
       {
         "question": "Разница между синхронными и асинхронными функциями?",
@@ -445,7 +445,7 @@
   },
   {
     "position": "junior",
-    "topic": "ECMAscript",
+    "topic": "ecmascript",
     "questions": [
       {
         "question": "Что такое ECMAScript? В чём отличие от JavaScript?",

@@ -1,9 +1,16 @@
 import cn from "classnames";
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import styles from "./styles.module.scss";
 import { SvgIcon } from "src/components/common/SvgIcon";
 import { icons } from "src/configs/icons";
 import { ITopicButtonType } from "src/types/common";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { makeQueryString } from "src/utils/helpers";
+import { useAppDispatch } from "src/hooks/reduxAppHooks";
+import { setCategory } from "src/store/slices/categorySlice";
+import { setTopic } from "src/store/slices/topicSlice";
+import { EnumRoutes } from "src/configs/routes";
 
 type IProps = {
   classname?: string;
@@ -11,8 +18,30 @@ type IProps = {
 };
 
 const TopicButton: FC<IProps> = ({ classname, data }) => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  // Redux Actions
+  const dispatch = useAppDispatch();
+
+  // Actions
+  const onClickHandler = useCallback(() => {
+    dispatch(setCategory(data.category));
+    dispatch(setTopic(data.name));
+    navigate(
+      `${EnumRoutes.TOPIC}?${makeQueryString({
+        category: data.category,
+        topic: data.name,
+      })}`
+    );
+  }, [data]);
+
   return (
-    <button className={cn(styles.button, classname)} role="button">
+    <button
+      onClick={onClickHandler}
+      className={cn(styles.button, classname)}
+      role="button"
+    >
       <div className={styles.first_row}>
         <span className={styles.topic_order}>{`${data.questionsCount}`}</span>
         <div className={styles.topic_icon_wrapper}>
@@ -20,7 +49,7 @@ const TopicButton: FC<IProps> = ({ classname, data }) => {
         </div>
       </div>
       <div className={styles.second_row}>
-        <span className={styles.button_text}>{data.name}</span>
+        <span className={styles.button_text}>{t(data.name)}</span>
       </div>
     </button>
   );

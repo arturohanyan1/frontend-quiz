@@ -1,6 +1,27 @@
 {
   "javascript300": "Javascript 300",
   "fullStack": "FullStack",
+  "fullstackjunior": "Fullstack junior",
+  "fullstackmiddle": "Fullstack middle",
+  "fullstacksenior": "Fullstack senior",
   "somethingWentWrong": "Something went wrong",
-  "noData": "No data"
+  "noData": "No data",
+  "general": "General",
+  "jsCore": "JS Core",
+  "functions": "Functions",
+  "frontend": "Frontend",
+  "css": "CSS",
+  "angular": "Angular",
+  "react": "React",
+  "backend": "Backend",
+  "database": "Database",
+  "tools": "Tools",
+  "practical": "Practical",
+  "accessibility": "Accessibility",
+  "asynchrony": "Asynchrony",
+  "browser": "Browser",
+  "ecmascript": "ECMAscript",
+  "html": "HTML",
+  "javascript": "Javascript",
+  "nodejs": "Node JS"
 }
