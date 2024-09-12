@@ -1,0 +1,55 @@
+@import "../../../styles/index.scss";
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: $icon-index;
+  border-radius: 50%;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 1.5s linear infinite;
+  border-style: solid;
+  border-color: $border-brand-color;
+  border-top-color: transparent;
+}
+
+.loader_size {
+  &__sm {
+    width: 20px;
+    height: 20px;
+    margin: -11px 0 0 -11px;
+    border-width: 1px;
+  }
+
+  &__md {
+    width: 40px;
+    height: 40px;
+    margin: -24px 0 0 -24px;
+    border-width: 4px;
+  }
+
+  &__lg {
+    width: 60px;
+    height: 60px;
+    margin: -36px 0 0 -36px;
+    border-width: 6px;
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

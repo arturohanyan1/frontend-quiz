@@ -1,3 +1,20 @@
-.container {
-  background-color: red;
+@import "../../styles/index.scss";
+
+.page {
+  height: 100vh;
+  height: 100svh;
+  position: relative;
+  padding-top: $page-header-height;
+}
+
+.page_content {
+  padding: 24px $page-layout-side-padding;
+}
+
+.categories_wrapper {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  width: 100%;
 }

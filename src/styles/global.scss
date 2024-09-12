@@ -1,3 +1,6 @@
+@import "./colors.scss";
+@import "./sizes.scss";
+
 body {
   font-family: "Inter", sans-serif;
   font-style: normal;
@@ -5,7 +8,49 @@ body {
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
-  background: #0d0d0d;
+  background: $bg_main_color;
   color: #ffffff;
   user-select: none;
+}
+
+.success-toast-message {
+  background: $alert_success_bg_color;
+  color: $alert_success_text_color;
+  font-size: 14px;
+  font-weight: 400;
+  width: auto;
+  min-width: auto;
+  padding: 5px;
+  border: 1px solid $alert_success_border_color;
+  min-height: auto;
+  border-radius: 8px;
+  margin: 5px $page_layout_side_padding;
+}
+
+.error-toast-message {
+  background: $alert_error_bg_color;
+  color: $alert_error_text_color;
+  font-size: 14px;
+  font-weight: 400;
+  width: auto;
+  min-width: auto;
+  padding: 5px;
+  border: 1px solid $alert_error_border_color;
+  min-height: auto;
+  border-radius: 8px;
+  margin: 5px $page_layout_side_padding;
+}
+
+.info-toast-message {
+  background: $alert_info_bg_color;
+  color: $alert_info_text_color;
+  font-size: 14px;
+  font-weight: 400;
+  width: auto;
+  min-width: auto;
+  padding: 5px;
+  border: 1px solid $alert_info_border_color;
+  min-height: auto;
+  border-radius: 8px;
+  margin: 5px $page_layout_side_padding;
 }

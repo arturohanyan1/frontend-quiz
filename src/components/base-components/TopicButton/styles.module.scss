@@ -1,0 +1,79 @@
+@import "../../../styles/index.scss";
+
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+  padding: 6px 6px 12px 12px;
+  appearance: none;
+  background: $topic_button_bg_color;
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  overflow: hidden;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: box-shadow, transform;
+  position: relative;
+}
+
+.button:focus {
+  background: darken($color: $topic_button_bg_color, $amount: 0.8);
+}
+
+.button:hover {
+  background: lighten($color: $topic_button_bg_color, $amount: 0.8);
+}
+
+.button:active {
+  background: darken($color: $topic_button_bg_color, $amount: 0.8);
+}
+
+.button_text {
+  font-size: 16px;
+  font-weight: 700;
+  color: $topic_button_text_color;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.first_row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+
+  .topic_order {
+    font-size: 14px;
+    font-weight: 400;
+    color: $category_button_text_color;
+    line-height: 1;
+    list-style: none;
+  }
+
+  .topic_icon_wrapper {
+    @include center;
+    height: 28px;
+    width: 28px;
+    border-radius: 4px;
+    color: azure;
+    background: $topic_button_icon_wrapper_color;
+  }
+}
+
+.second_row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
